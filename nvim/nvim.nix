@@ -44,8 +44,9 @@
 		
       			cmp_luasnip
       			cmp-nvim-lsp
-
+				neodev-nvim	
       			luasnip
+				vim-nix
 		{
 			plugin = (nvim-treesitter.withPlugins (p: [
 				p.tree-sitter-nix
@@ -60,7 +61,7 @@
 	];
 
 	extraLuaConfig = ''
-    ${builtins.readFile ./options.lua}
+   		${builtins.readFile ./options.lua}
   	'';
   };
 }

@@ -1,7 +1,9 @@
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
-vim.g.mapleader = ' '
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+
 vim.g.maplocalleader = ' '
 
 vim.o.clipboard = 'unnamedplus'
@@ -19,3 +21,4 @@ vim.o.updatetime = 300
 vim.o.termguicolors = true
 
 vim.o.mouse = 'a'
+
