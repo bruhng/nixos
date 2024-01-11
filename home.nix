@@ -73,7 +73,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      nixu = "nix flake update && sudo nixos-rebuild switch --flake ~/.dotfiles";
+      nixu = "cd ~/.dotfiles && nix flake update && sudo nixos-rebuild switch --flake ~/.dotfiles";
       homeu = "home-manager switch --flake ~/.dotfiles";
     };
   };
