@@ -47,8 +47,8 @@
     };
   };
 
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.fish;
+  programs.fish.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -123,7 +123,8 @@
   fonts.packages = with pkgs; [
     nerdfonts
   ];
-
+  
+  programs.ssh.startAgent = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
