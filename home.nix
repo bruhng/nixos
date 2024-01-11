@@ -86,6 +86,11 @@
     userEmail = "gustav.bruhn@live.se";
   };
 
+  programs.kitty = {
+    enable = true;
+    theme = "Catppuccin-Mocha";
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
