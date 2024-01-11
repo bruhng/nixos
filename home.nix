@@ -70,8 +70,13 @@
     EDITOR = "nvim";
   };
 
-  programs.fish.enable = true;
-
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      nixu = "nix flake update && sudo nixos-rebuild switch --flake ~/.dotfiles";
+      homeu = "home-manager switch --flake ~/.dotfiles";
+    };
+  };
   programs.git = {
     enable = true;
     userName = "Gustav Bruhn";
