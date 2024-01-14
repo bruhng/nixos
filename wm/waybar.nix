@@ -22,7 +22,7 @@
       	on-scroll-down = "hyprctl dispatch workspace e-1";
       };
       "clock" = {
-        format = "{: %I:%M %p}";
+        format = "{: %H:%M %p}";
       	tooltip = false;
       };
       "hyprland/window" = {
