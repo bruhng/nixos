@@ -4,6 +4,7 @@ let
   my-python-packages = ps: with ps; [
     python-lsp-server
     cvxopt
+    numpy
   ];
 in
 {
