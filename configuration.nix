@@ -88,9 +88,13 @@
   users.users.bruhng = {
     isNormalUser = true;
     description = "Gustav Bruhn";
-    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+    extraGroups = [ "docker" "networkmanager" "wheel" "scanner" "lp" "uucp"];
   };
+
+  services.udev.packages = with pkgs; [
+    bazecor
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -113,7 +117,6 @@
     discord
     spotify
     vscode
-    bazecor
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     })

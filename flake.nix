@@ -7,11 +7,14 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
   
-  outputs = {self, nixpkgs, home-manager, ...}:
+  outputs = inputs:
     let 
-      lib = nixpkgs.lib;
+      lib = inputs.nixpkgs.lib;
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+        overlays = import ./lib/overlays.nix {inherit inputs system; };
+      };
     in {
     nixosConfigurations = {
       nixos = lib.nixosSystem {
@@ -20,10 +23,13 @@
       };
     };
     homeConfigurations = {
-      bruhng = home-manager.lib.homeManagerConfiguration {
+      bruhng = inputs.home-manager.lib.homeManagerConfiguration {
         modules = [ ./home.nix ];
         inherit pkgs;
       };
+    };
+    packages.${system} = {
+      inherit (pkgs) bazecor;
     };
   };
 }
