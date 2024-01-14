@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./python/python.nix
     ];
 
   # Hyprland stuff
@@ -16,10 +17,6 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
 
-  # Waybar stuff
-  programs.waybar = {
-     enable=true;
-  };
 
   # Pipewire stuff
   security.rtkit.enable = true;
@@ -117,6 +114,10 @@
     spotify
     vscode
     bazecor
+    (waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    })
+    )
   ];
 
 	

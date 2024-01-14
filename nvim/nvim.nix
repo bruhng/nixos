@@ -51,6 +51,7 @@
 			plugin = (nvim-treesitter.withPlugins (p: [
 				p.tree-sitter-nix
 	  			p.tree-sitter-lua
+                p.tree-sitter-python
         	]));
 			config = toLuaFile ./plugin/treesitter.lua;
     	}
