@@ -37,6 +37,9 @@ require('lspconfig').lua_ls.setup {
         Lua = {
             workspace = { checkThirdParty = false },
             telemetry = { enable = false },
+			diagnostics = {
+				globals = { 'vim' },
+			},
         },
     }
 }

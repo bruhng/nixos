@@ -1,4 +1,15 @@
+local on_attach = function(_, bufnr)
+	local bufmap = function(keys, func)
+		vim.keymap.set('n', keys, func, { buffer = bufnr })
+    end
+
+	bufmap('<leader>pf', require('telescope.builtin').find_files)
+	bufmap('<leader>fg', require('telescope.builtin').live_grep)
+end
+
+
 require('telescope').setup({
+	on_attach = on_attach,
 	extensions = {
     	fzf = {
       		fuzzy = true,                    -- false will only do exact matching
@@ -8,7 +19,3 @@ require('telescope').setup({
     	}
   	}
 })
-
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
