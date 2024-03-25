@@ -1,5 +1,5 @@
 vim.g.mapleader = ' '
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>nt", vim.cmd.Ex)
 
 vim.g.maplocalleader = ' '
 
@@ -7,6 +7,8 @@ vim.o.clipboard = 'unnamedplus'
 
 vim.o.number = true
 vim.o.relativenumber = true
+
+vim.o.smartindent = true
 
 vim.o.signcolumn = 'yes'
 

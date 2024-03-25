@@ -16,8 +16,7 @@
     extraPackages = with pkgs; [
 		# language servers
       	lua-language-server
-      	rnix-lsp
-
+        nil
 		# for copy/paste in vim
       	xclip
 		wl-clipboard
@@ -37,18 +36,18 @@
 			plugin = telescope-nvim;
 			config = toLuaFile ./plugin/telescope.lua;
 		}
-      		{
-        		plugin = nvim-cmp;
-        		config = toLuaFile ./plugin/cmp.lua;
-      		}
-		
-      			cmp_luasnip
-      			cmp-nvim-lsp
-				neodev-nvim	
-      			luasnip
-				vim-nix
-		{
-			plugin = (nvim-treesitter.withPlugins (p: [
+        {
+            plugin = nvim-cmp;
+            config = toLuaFile ./plugin/cmp.lua;
+        }
+      
+        cmp_luasnip
+        cmp-nvim-lsp
+        neodev-nvim	
+        luasnip
+        vim-nix
+        {
+            plugin = (nvim-treesitter.withPlugins (p: [
 				p.tree-sitter-nix
 	  			p.tree-sitter-lua
                 p.tree-sitter-python

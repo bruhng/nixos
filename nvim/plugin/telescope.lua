@@ -1,12 +1,3 @@
-local on_attach = function(_, bufnr)
-	local bufmap = function(keys, func)
-		vim.keymap.set('n', keys, func, { buffer = bufnr })
-    end
-
-	bufmap('<leader>pf', require('telescope.builtin').find_files)
-	bufmap('<leader>fg', require('telescope.builtin').live_grep)
-end
-
 
 require('telescope').setup({
 	on_attach = on_attach,

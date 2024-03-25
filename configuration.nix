@@ -121,6 +121,11 @@
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     })
     )
+    qpwgraph
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+      ];
+    }) 
   ];
 
 	
