@@ -14,9 +14,13 @@
   # Hyprland stuff
   programs.hyprland.enable = true;
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
-
+  services.greetd = {
+    enable = true;
+    settings = {
+      command = "Hyprland";
+    };
+  };
+  programs.regreet.enable = true;
 
   # Pipewire stuff
   security.rtkit.enable = true;
@@ -77,8 +81,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "se";
-    xkbVariant = "";
+    xkb.layout = "se";
+    xkb.variant = "";
   };
 
   # Configure console keymap
