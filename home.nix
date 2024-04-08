@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./nvim/nvim.nix
     ./wm/waybar.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
@@ -23,6 +22,7 @@
   # environment.
   home.packages = with pkgs; [
     bazecor # Configuration software for dygma defy
+    nvim-pkg
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -73,6 +73,7 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    BROWSER = "firefox";
   };
 
   programs.fish = {
